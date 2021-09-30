@@ -1,0 +1,93 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #141414;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.sharingan{
+    background: #e41414;
+    width: 8em;
+    height: 8em;
+    position: relative;
+    border: 5px #000 solid;
+    animation: spin 2s ease-in-out;
+}
+
+.sharingan .inner-ring{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+width: 4em;
+height: 4em;
+border: 4px rgba(110,13,13,0.5) solid;
+}
+
+.sharingan , .tomoe , .circle , .inner-ring{
+    border-radius: 50%;
+}
+
+.tomoe , .circle{
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    background: #000;
+}
+
+.sharingan .tomoe:nth-child(1){
+    top: -0.5em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sharingan .tomoe::before{
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    top: -0.5em;
+    width: 1.9em;
+    height: 0.9em;
+    border-left: 16px solid #000;
+    border-radius: 100% 0 0 0;
+}
+
+.sharingan .tomoe:nth-child(2){
+    bottom: 0.5em;
+    left: -0.3em;
+    transform: rotate(-120deg);
+}
+
+.sharingan .tomoe:nth-child(3){
+    bottom: 0.5em;
+    right: -0.3em;
+    transform: rotate(120deg);
+}
+
+.sharingan .circle{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1.5em;
+    height: 1.5em;
+    box-shadow: 0 0 15px 5px rgba(0,0,0,0.6);
+}
+
+@keyframes spin {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        background: #f03a3a;
+        box-shadow: 0 0 4px 4px #f03a3a;
+    }
+    100%{
+        transform: rotate(360deg);
+        box-shadow: none;
+        background: #e41414;
+        opacity: 1;
+    }
+}
